@@ -113,7 +113,7 @@ class Movuino(Thread):
 				self.my = curVal[8]
 				self.mz = curVal[9]
 
-			time.sleep(0.05)
+			time.sleep(0.01)
 
 	def stop(self):
 		self.isMovuinoRunning = False

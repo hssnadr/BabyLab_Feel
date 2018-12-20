@@ -8,14 +8,14 @@ import Movuino as mvn
 #####################################################################
 
 # COMPUTER
-computerIP = "192.168.43.24" # set here your computer IP
+computerIP = "172.20.10.3" # set here your computer IP
 
 # MOVUINO MASTER
-movuinoIPMst = "192.168.43.236"  # set here your Movuino master IP once its connected to the same wifi network as your computer
-movuinoMst = mvn.Movuino(computerIP, movuinoIPMst, 7400, 7401)
+movuinoIPMst = "172.20.10.4"  # set here your Movuino master IP once its connected to the same wifi network as your computer
+movuinoMst = mvn.Movuino(computerIP, movuinoIPMst, 7400, 7401) # 7400 port out // 7401 port in
 
 # MOVUINO SLAVE
-movuinoIPSlv = "192.168.43.37"  # set here your Movuino slave IP once its connected to the same wifi network as your computer
+movuinoIPSlv = "172.20.10.5"  # set here your Movuino slave IP once its connected to the same wifi network as your computer
 movuinoSlv = mvn.Movuino(computerIP, movuinoIPSlv, 7500, 7501)
 
 #-----------------------#
@@ -48,7 +48,7 @@ def main(args = None):
 
 	timer0 = time.time()
 	while (time.time()-timer0 < 5):
-		printMovuinoData(movuinoSlv)
+		printMovuinoData(movuinoMst)
 
 		red_ = (int)(255.0*(0.07+movuinoMst.ax)/0.14)     # set red light component
 		green_ = (int)(255.0*(0.07+movuinoMst.ay)/0.14)   # set green
@@ -56,7 +56,7 @@ def main(args = None):
 
 		setMovuinosNeopix(movuinoMst, movuinoSlv, red_, green_, blue_)  # set pixel color on both Movuino
 
-		time.sleep(.05) # let quick sleep to avoid overload
+		time.sleep(.02) # let quick sleep to avoid overload
 	
 	movuinoMst.vibroPulse(150,100,3)                        # make pulsation on Movuino master (vibration time, vibration off, number of pulsation)
 	setMovuinosNeopix(movuinoMst, movuinoSlv, 0,255,0)
