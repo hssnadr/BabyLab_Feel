@@ -48,7 +48,7 @@ def main(args = None):
 
 	timer0 = time.time()
 	while (time.time()-timer0 < 5):
-		printMovuinoData(movuinoMst)
+		printMovuinoData(movuinoSlv)
 
 		red_ = (int)(255.0*(0.07+movuinoMst.ax)/0.14)     # set red light component
 		green_ = (int)(255.0*(0.07+movuinoMst.ay)/0.14)   # set green
@@ -56,7 +56,7 @@ def main(args = None):
 
 		setMovuinosNeopix(movuinoMst, movuinoSlv, red_, green_, blue_)  # set pixel color on both Movuino
 
-		time.sleep(.02) # let quick sleep to avoid overload
+		time.sleep(.01) # let quick sleep to avoid overload
 	
 	movuinoMst.vibroPulse(150,100,3)                        # make pulsation on Movuino master (vibration time, vibration off, number of pulsation)
 	setMovuinosNeopix(movuinoMst, movuinoSlv, 0,255,0)
