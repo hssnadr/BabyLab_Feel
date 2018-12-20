@@ -1,5 +1,11 @@
 # BabyLab Feel
 
+## Python 2.7
+Install pyOSC: https://github.com/ptone/pyosc
+
+## Movuino interface
+connect computer to wifi
+
 ![alt tag](https://raw.githubusercontent.com/hssnadr/BabyLab_Feel/master/img/ReadMe_01.jpg)
 
 quit and start again Movuino interface
