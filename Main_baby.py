@@ -61,6 +61,12 @@ def main(args = None):
 	movuinoMst.vibroPulse(150,100,3)                        # make pulsation on Movuino master (vibration time, vibration off, number of pulsation)
 	setMovuinosNeopix(movuinoMst, movuinoSlv, 0,255,0)
 
+	movuinoMst.lightNow(False) # turn off light on Movuino Master
+	time.sleep(0.5)
+	movuinoMst.lightNow(True)  # turn on on last color
+	time.sleep(0.5)
+	movuinoMst.lightNow(False)
+
 	#-----------------------#
 
 	movuinoMst.stop() # stop thread and OSC communication
